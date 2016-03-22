@@ -1,0 +1,35 @@
+{
+  "name": "wavefront-obj-parser",
+  "version": "0.0.1",
+  "description": "Parse wavefront .obj files into json",
+  "main": "src/wavefront-obj-parser.js",
+  "bin": {
+    "obj2json": "./bin/obj2json.js"
+  },
+  "scripts": {
+    "test": "standard && node test/wavefront-obj-parser.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chinedufn/wavefront-obj-parser.git"
+  },
+  "keywords": [
+    "wavefront",
+    "obj",
+    "webgl",
+    "3d",
+    "parse",
+    "parser",
+    "json"
+  ],
+  "author": "Chinedu Francis Nwafili <frankie.nwafili@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chinedufn/wavefront-obj-parser/issues"
+  },
+  "homepage": "https://github.com/chinedufn/wavefront-obj-parser#readme",
+  "devDependencies": {
+    "standard": "^6.0.8",
+    "tape": "^4.5.1"
+  }
+}

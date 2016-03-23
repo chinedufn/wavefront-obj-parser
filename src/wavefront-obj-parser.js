@@ -23,9 +23,9 @@ function ParseWavefrontObj (wavefrontString) {
       // Get our 4 sets of vertex, uv, and normal indices for this face
       for (var i = 1; i < 5; i++) {
         var indices = currentLineTokens[i].split('/')
-        parsedJSON.vertexIndex.push(indices[0])
-        parsedJSON.uvIndex.push(indices[1])
-        parsedJSON.normalIndex.push(indices[2])
+        parsedJSON.vertexIndex.push(Number(indices[0]) - 1) // We zero index
+        parsedJSON.uvIndex.push(Number(indices[1]) - 1) // our face indices
+        parsedJSON.normalIndex.push(Number(indices[2]) - 1) // by subtracting 1
       }
     }
   })

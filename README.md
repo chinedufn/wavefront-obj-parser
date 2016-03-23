@@ -10,7 +10,9 @@ $ npm install --save wavefront-obj-parser
 ```
 
 
-## CLI:
+## CLI
+
+The CLI will output stringified JSON to stdout
 
 ```sh
 # parse from stdin

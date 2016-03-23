@@ -25,7 +25,7 @@ wf2json my-3d-model.obj > my-3d-model.json
 ```js
 var parseWFObj = require('wavefront-obj-parser')
 var wavefrontString = fs.readFileSync('./my-3d-model.obj').toString('utf8')
-var parsedWFJSON = parseWVObj(wavefrontString)
+var parsedJSON = parseWFObj(wavefrontString)
 ```
 
 ### `parseWFObj(wavefrontString)` -> `object`

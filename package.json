@@ -7,7 +7,7 @@
     "obj2json": "./bin/obj2json.js"
   },
   "scripts": {
-    "test": "standard && node test/wavefront-obj-parser.js"
+    "test": "standard && node test/index.js"
   },
   "repository": {
     "type": "git",

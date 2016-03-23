@@ -16,10 +16,10 @@ The CLI will output stringified JSON to stdout
 
 ```sh
 # parse from stdin
-cat my-3d-model.obj | wf2json > my-3d-model.json
+cat my-3d-model.obj | obj2json > my-3d-model.json
 
 # parse from file
-wf2json my-3d-model.obj > my-3d-model.json
+obj2json my-3d-model.obj > my-3d-model.json
 ```
 
 ## API

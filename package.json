@@ -7,6 +7,7 @@
     "obj2json": "./bin/obj2json.js"
   },
   "scripts": {
+    "demo": "budo demo/browser-entry.js --open --live",
     "test": "standard && node test/index.js"
   },
   "repository": {
@@ -29,6 +30,9 @@
   },
   "homepage": "https://github.com/chinedufn/wavefront-obj-parser#readme",
   "devDependencies": {
+    "budo": "^8.3.0",
+    "gl-mat4": "^1.1.4",
+    "gl-vec3": "^1.0.3",
     "standard": "^6.0.8",
     "tape": "^4.5.1"
   }

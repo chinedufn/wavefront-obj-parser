@@ -8,6 +8,7 @@
   },
   "scripts": {
     "demo": "budo demo/browser-entry.js --open --live -- -t brfs",
+    "deploy": "browserify -t brfs demo/browser-entry.js | uglifyjs -mc > demo-dist/bundle.js && gh-pages -d demo-dist",
     "test": "standard && node test/index.js"
   },
   "repository": {
@@ -31,13 +32,16 @@
   "homepage": "https://github.com/chinedufn/wavefront-obj-parser#readme",
   "devDependencies": {
     "brfs": "^1.4.3",
+    "browserify": "^13.0.1",
     "budo": "^8.3.0",
+    "gh-pages": "^0.11.0",
     "gl-mat4": "^1.1.4",
     "gl-vec3": "^1.0.3",
     "raf-loop": "^1.1.3",
     "solid-state": "^0.4.1",
     "standard": "^6.0.8",
-    "tape": "^4.5.1"
+    "tape": "^4.5.1",
+    "uglify-js": "^2.7.0"
   },
   "dependencies": {
     "global": "^4.3.0"

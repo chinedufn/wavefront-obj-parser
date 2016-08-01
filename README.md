@@ -3,6 +3,10 @@ wavefront-obj-parser [![npm version](https://badge.fury.io/js/wavefront-obj-pars
 
 > An `api` and `cli` for parsing [wavefront .obj files](https://en.wikipedia.org/wiki/Wavefront_.obj_file) into JSON
 
+[View live demo](http://chinedufn.github.io/wavefront-obj-parser/)
+
+[View demo source](/demo)
+
 ## To Install
 
 ```
@@ -67,6 +71,7 @@ var returnedObject = {
 
 ## See Also
 
+- [collada-dae-parser](https://github.com/chinedufn/collada-dae-parser)
 - [image-to-heightmap](https://github.com/chinedufn/image-to-heightmap)
 
 ## License

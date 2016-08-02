@@ -13,7 +13,7 @@ module.exports = LoadModel
 // TODO: Pass in model data
 // TODO: Turn into own repo
 function LoadModel (gl) {
-  var modelWavefront = fs.readFileSync(path.resolve(__dirname, '../../test/fixture/checkercube.obj')).toString()
+  var modelWavefront = fs.readFileSync(path.resolve(__dirname, '../../test/fixture/tree.obj')).toString()
   var modelJSON = obj2json(modelWavefront)
 
   var shaderObj = initShader(gl)
@@ -28,13 +28,16 @@ function LoadModel (gl) {
 
   // TODO: Less verbose
   // TODO: Only expand if face has 4 vertices
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < modelJSON.vertexIndex.length / 4; i++) {
     vertexIndices.push(modelJSON.vertexIndex[i * 4])
     vertexIndices.push(modelJSON.vertexIndex[i * 4 + 1])
     vertexIndices.push(modelJSON.vertexIndex[i * 4 + 2])
-    vertexIndices.push(modelJSON.vertexIndex[i * 4])
-    vertexIndices.push(modelJSON.vertexIndex[i * 4 + 2])
-    vertexIndices.push(modelJSON.vertexIndex[i * 4 + 3])
+    // If this is a face with 4 vertices we push a second triangle
+    if (modelJSON.vertexIndex[i * 4 + 3] !== -1) {
+      vertexIndices.push(modelJSON.vertexIndex[i * 4])
+      vertexIndices.push(modelJSON.vertexIndex[i * 4 + 2])
+      vertexIndices.push(modelJSON.vertexIndex[i * 4 + 3])
+    }
   }
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, vertexPositionIndexBuffer)

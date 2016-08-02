@@ -22,10 +22,19 @@ function ParseWavefrontObj (wavefrontString) {
     if (currentLineTokens[0] === 'f') {
       // Get our 4 sets of vertex, uv, and normal indices for this face
       for (var i = 1; i < 5; i++) {
-        var indices = currentLineTokens[i].split('/')
-        parsedJSON.vertexIndex.push(Number(indices[0]) - 1) // We zero index
-        parsedJSON.uvIndex.push(Number(indices[1]) - 1) // our face indices
-        parsedJSON.normalIndex.push(Number(indices[2]) - 1) // by subtracting 1
+        // If there is no fourth face entry then this is specifying a triangle
+        // in this case we push `-1`
+        // Consumers of this module should check for `-1` before expanding face data
+        if (i === 4 && !currentLineTokens[4]) {
+          parsedJSON.vertexIndex.push(-1)
+          parsedJSON.uvIndex.push(-1)
+          parsedJSON.normalIndex.push(-1)
+        } else {
+          var indices = currentLineTokens[i].split('/')
+          parsedJSON.vertexIndex.push(Number(indices[0]) - 1) // We zero index
+          parsedJSON.uvIndex.push(Number(indices[1]) - 1) // our face indices
+          parsedJSON.normalIndex.push(Number(indices[2]) - 1) // by subtracting 1
+        }
       }
     }
   })

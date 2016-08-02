@@ -3,6 +3,7 @@ var fs = require('fs')
 var path = require('path')
 
 var initShader = require('./shader/init-shader.js')
+var initTexture = require('./texture/init-texture.js')
 
 var mat4Create = require('gl-mat4/create')
 var mat4Translate = require('gl-mat4/translate')
@@ -17,6 +18,7 @@ function LoadModel (gl) {
   var modelJSON = obj2json(modelWavefront)
 
   var shaderObj = initShader(gl)
+  var modelTexture = initTexture(gl)
 
   var vertexPositionBuffer = gl.createBuffer()
   var vertexTextureBuffer = gl.createBuffer()
@@ -91,6 +93,13 @@ function LoadModel (gl) {
 
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer)
     gl.vertexAttribPointer(shaderObj.vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0)
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexTextureBuffer)
+    gl.vertexAttribPointer(shaderObj.textureCoordAttribute, 2, gl.FLOAT, false, 0, 0)
+
+    gl.activeTexture(gl.TEXTURE0)
+    gl.bindTexture(gl.TEXTURE_2D, modelTexture)
+    gl.uniform1i(shaderObj.samplerUniform, 0)
 
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, vertexPositionIndexBuffer)
 

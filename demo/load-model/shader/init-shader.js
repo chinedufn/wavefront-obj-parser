@@ -23,10 +23,15 @@ function InitShader (gl) {
   var vertexPositionAttribute = gl.getAttribLocation(shaderProgram, 'aVertexPosition')
   gl.enableVertexAttribArray(vertexPositionAttribute)
 
+  var textureCoordAttribute = gl.getAttribLocation(shaderProgram, 'aTextureCoord')
+  gl.enableVertexAttribArray(textureCoordAttribute)
+
   return {
     mvMatrixUniform: gl.getUniformLocation(shaderProgram, 'uMVMatrix'),
     pMatrixUniform: gl.getUniformLocation(shaderProgram, 'uPMatrix'),
     program: shaderProgram,
+    samplerUniform: gl.getUniformLocation(shaderProgram, 'uSampler'),
+    textureCoordAttribute: textureCoordAttribute,
     vertexPositionAttribute: vertexPositionAttribute
   }
 }

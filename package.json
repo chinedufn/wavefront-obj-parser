@@ -1,6 +1,6 @@
 {
   "name": "wavefront-obj-parser",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Parse wavefront .obj files into json",
   "main": "src/wavefront-obj-parser.js",
   "bin": {

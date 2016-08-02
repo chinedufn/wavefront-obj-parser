@@ -13,6 +13,12 @@ wavefront-obj-parser [![npm version](https://badge.fury.io/js/wavefront-obj-pars
 $ npm install --save wavefront-obj-parser
 ```
 
+## Running the demo locally
+
+```sh
+# Changes to the `src` and `demo` directories will live reload in your browser
+$ npm run demo
+```
 
 ## CLI
 

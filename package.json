@@ -8,7 +8,7 @@
   },
   "scripts": {
     "demo": "budo demo/browser-entry.js --open --live --dir=demo/asset -- -t brfs",
-    "deploy": "browserify -t brfs demo/browser-entry.js | uglifyjs -mc > demo-dist/bundle.js && npm run dist:index:html && gh-pages -d demo-dist",
+    "deploy": "browserify -t brfs demo/browser-entry.js | uglifyjs -mc > demo-dist/bundle.js && npm run dist:index:html && cp demo/asset/tree-texture.jpg demo-dist/tree-texture.jpg && gh-pages -d demo-dist",
     "dist:index:html": "echo '</script><script src=\"bundle.js\">' | htmlify > demo-dist/index.html",
     "test": "standard && node test/index.js"
   },

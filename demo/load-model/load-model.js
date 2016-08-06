@@ -127,7 +127,7 @@ function LoadModel (gl) {
     mat3FromMat4(normalMatrix, modelMatrix)
     mat3Invert(normalMatrix, normalMatrix)
     mat3Transpose(normalMatrix, normalMatrix)
-    gl.uniformMatrix3fv(shaderObj.uNMatrix, false, normalMatrix)
+    gl.uniformMatrix3fv(shaderObj.nMatrixUniform, false, normalMatrix)
 
     // Lighting
     var lightingDirection = [1, -0.5, -1]

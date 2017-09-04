@@ -1,6 +1,6 @@
 // We trim trailing `0` on floats
 module.exports = {
-  normal: [
+  vertexNormals: [
     0, -1, 0,
     0, 1, 0,
     1, 0, 0,
@@ -8,7 +8,7 @@ module.exports = {
     -1, -0, -0,
     0, 0, -1
   ],
-  uv: [
+  vertexUVs: [
     0, 0.666667,
     0.333333, 0.666667,
     0.333333, 1,
@@ -23,7 +23,7 @@ module.exports = {
     1, 0.333333,
     1, 0
   ],
-  vertex: [
+  vertexPositions: [
     1, -1, -1,
     1, -1, 1,
     -1, -1, 1,
@@ -33,7 +33,7 @@ module.exports = {
     -1, 1, 1,
     -1, 1, -1
   ],
-  normalIndex: [
+  vertexNormalIndices: [
     0, 0, 0, 0,
     1, 1, 1, 1,
     2, 2, 2, 2,
@@ -41,7 +41,7 @@ module.exports = {
     4, 4, 4, 4,
     5, 5, 5, 5
   ],
-  uvIndex: [
+  vertexUVIndices: [
     0, 1, 2, 3,
     4, 5, 1, 6,
     4, 6, 7, 8,
@@ -49,7 +49,7 @@ module.exports = {
     11, 4, 8, 12,
     9, 6, 1, 0
   ],
-  vertexIndex: [
+  vertexPositionIndices: [
     0, 1, 2, 3,
     4, 7, 6, 5,
     0, 4, 5, 1,

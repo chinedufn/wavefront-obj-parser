@@ -58,17 +58,22 @@ The returned JSON object has the following one dimensional array properties:
 ```js
 var returnedObject = {
   // Parsed from `vn` lines
-  normal: [...],
+  vertexNormals: [...],
   // Parsed from `vt` lines
-  uv: [...],
+  vertexUVs: [...],
   // Parsed from `v` lines
-  vertex: [...],
+  vertexPositions: [...],
   // These come from the `f` face lines
-  normalIndex: [...],
-  uvIndex: [...],
-  vertexIndex: [...]
+  vertexNormalIndices: [...],
+  vertexUVIndices: [...],
+  vertexPositionIndices: [...]
 }
 ```
+
+If you plan to use normals or UVs you'll want to run the data through something like [expand-vertex-data](https://github.com/chinedufn/expand-vertex-data).
+
+This unwraps your data from being indexed across multiple properties (vertices, normals, uvs) to only being indexed based on vertices. You can only have one
+`ELEMENT_ARRAY_BUFFER` in WebGL so you can't make use of multiple indices.
 
 ## TODO:
 

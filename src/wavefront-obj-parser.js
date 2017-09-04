@@ -1,12 +1,12 @@
 module.exports = ParseWavefrontObj
 
 // Map .obj vertex info line names to our returned property names
-var vertexInfoNameMap = {v: 'vertex', vt: 'uv', vn: 'normal'}
+var vertexInfoNameMap = {v: 'vertexPositions', vt: 'vertexUVs', vn: 'vertexNormals'}
 
 function ParseWavefrontObj (wavefrontString) {
   'use strict'
 
-  var parsedJSON = {normal: [], uv: [], vertex: [], normalIndex: [], uvIndex: [], vertexIndex: []}
+  var parsedJSON = {vertexNormals: [], vertexUVs: [], vertexPositions: [], vertexNormalIndices: [], vertexUVIndices: [], vertexPositionIndices: []}
 
   var linesInWavefrontObj = wavefrontString.split('\n')
 
@@ -34,14 +34,14 @@ function ParseWavefrontObj (wavefrontString) {
         // in this case we push `-1`
         // Consumers of this module should check for `-1` before expanding face data
         if (k === 4 && !currentLineTokens[4]) {
-          parsedJSON.vertexIndex.push(-1)
-          parsedJSON.uvIndex.push(-1)
-          parsedJSON.normalIndex.push(-1)
+          parsedJSON.vertexPositionIndices.push(-1)
+          parsedJSON.vertexUVIndices.push(-1)
+          parsedJSON.vertexNormalIndices.push(-1)
         } else {
           var indices = currentLineTokens[k].split('/')
-          parsedJSON.vertexIndex.push(parseInt(indices[0], 10) - 1) // We zero index
-          parsedJSON.uvIndex.push(parseInt(indices[1], 10) - 1) // our face indices
-          parsedJSON.normalIndex.push(parseInt(indices[2], 10) - 1) // by subtracting 1
+          parsedJSON.vertexPositionIndices.push(parseInt(indices[0], 10) - 1) // We zero index
+          parsedJSON.vertexUVIndices.push(parseInt(indices[1], 10) - 1) // our face indices
+          parsedJSON.vertexNormalIndices.push(parseInt(indices[2], 10) - 1) // by subtracting 1
         }
       }
     }

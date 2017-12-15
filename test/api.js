@@ -21,3 +21,33 @@ test('Parse file where some faces are triangles with only 3 values', function (t
   t.plan(1)
   t.deepEqual(objParse(treeObjString), expectedTreeJSON)
 })
+
+test('Handle whitespace inside a single line', function (t) {
+  var testString = 'v  0.1 0.2 0.3\nv  0.2 0.1 0.3\n'
+  var expectedJSON = {
+    vertexNormals: [],
+    vertexUVs: [],
+    vertexPositions: [0.1, 0.2, 0.3, 0.2, 0.1, 0.3],
+    vertexNormalIndices: [],
+    vertexUVIndices: [],
+    vertexPositionIndices: []
+  }
+
+  t.plan(1)
+  t.deepEqual(objParse(testString), expectedJSON)
+})
+
+test('Handle trailing line whitespace', function (t) {
+  var testString = 'v 0.1 0.2 0.3 \n v 0.2 0.1 0.3 \n '
+  var expectedJSON = {
+    vertexNormals: [],
+    vertexUVs: [],
+    vertexPositions: [0.1, 0.2, 0.3, 0.2, 0.1, 0.3],
+    vertexNormalIndices: [],
+    vertexUVIndices: [],
+    vertexPositionIndices: []
+  }
+
+  t.plan(1)
+  t.deepEqual(objParse(testString), expectedJSON)
+})

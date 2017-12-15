@@ -16,7 +16,7 @@ function ParseWavefrontObj (wavefrontString) {
   for (i = 0; i < linesInWavefrontObj.length; i++) {
     currentLine = linesInWavefrontObj[i]
     // Tokenize our current line
-    currentLineTokens = currentLine.split(' ')
+    currentLineTokens = currentLine.trim().split(/\s+/)
     // vertex position, vertex texture, or vertex normal
     vertexInfoType = vertexInfoNameMap[currentLineTokens[0]]
 
